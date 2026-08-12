@@ -1,0 +1,12 @@
+{
+  "files": {
+    "https://raw.githubusercontent.com/PyDevices/pydevices/v0.0.17/lib/events.py": "./events.py",
+    "https://raw.githubusercontent.com/PyDevices/pydevices/v0.0.17/lib/keys.py": "./keys.py",
+    "https://raw.githubusercontent.com/PyDevices/pydevices/v0.0.17/drivers/boarddev.py": "./boarddev.py",
+    "https://raw.githubusercontent.com/PyDevices/pydevices/v0.0.17/drivers/display/displaydev/__init__.py": "./displaydev/__init__.py",
+    "https://raw.githubusercontent.com/PyDevices/pydevices/v0.0.17/drivers/display/displaydev/_domkeys.py": "./displaydev/_domkeys.py",
+    "https://raw.githubusercontent.com/PyDevices/pydevices/v0.0.17/drivers/display/displaydev/psdisplay.py": "./displaydev/psdisplay.py",
+    "https://raw.githubusercontent.com/PyDevices/pydevices/v0.0.17/board_configs/psdisplay/board_config.py": "./board_config.py",
+    "https://raw.githubusercontent.com/PyDevices/pydevices/v0.0.17/board_configs/psdisplay/board_devices.py": "./board_devices.py"
+  }
+}
