@@ -7,7 +7,7 @@ Use this repository as a GitHub template, edit `main.py`, and enable GitHub
 Pages with **GitHub Actions** as the source. The included workflow deploys the
 app, and the service worker caches both the application shell and the pinned
 PyScript runtime for offline launches after the first successful visit.
-The template also pins PyDevices source files to release `v0.0.17`, so a new
+The template also pins PyDevices source files to release `v0.1.0`, so a new
 app does not silently change when the product's default branch advances.
 
 ## Customize

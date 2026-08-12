@@ -32,7 +32,7 @@ class TemplateTests(unittest.TestCase):
         config = json.loads((ROOT / "pyscript.json").read_text(encoding="utf-8"))
         urls = tuple(config["files"])
         self.assertTrue(urls)
-        self.assertTrue(all("PyDevices/pydevices/v0.0.17/" in url for url in urls))
+        self.assertTrue(all("PyDevices/pydevices/v0.1.0/" in url for url in urls))
         self.assertIn("./boarddev.py", config["files"].values())
 
 
