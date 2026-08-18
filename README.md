@@ -53,6 +53,12 @@ runtime.run_forever()
 2. **Browser Event Loop**: `runtime.run_forever()` integrates cooperatively with the browser's native JavaScript event loop to dispatch pointer/touch events.
 3. **Automated PWA Caching**: The included GitHub Actions workflow and service worker cache the PyScript runtime and application shell so users can install and run the app offline on desktop or mobile browsers.
 
+## Documentation
+
+- [Make your PyScript app a PWA](docs/pwa-guide.md) — host/install matrix,
+  manifest, service worker, cross-origin isolation, deployment, and offline
+  caching. The template already ships everything that guide describes.
+
 ## Customize
 
 - Edit `main.py` for application behavior.
