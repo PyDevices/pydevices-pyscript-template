@@ -42,7 +42,7 @@ navigation in-window.
 
 **PWA versus the native Android APK:** the PWA runs PyScript in the browser or
 WebView and draws through `PSDisplay`, distributed as an HTTPS URL. The
-[Android APK](https://github.com/PyDevices/pydevices-android-template) runs
+[Android APK](https://github.com/PyDevices/android-template) runs
 CPython with `SDLDisplay` + `usdl2`, distributed through Play or sideload. Use
 the PWA for zero-install, cross-OS shareable demos; use the APK for store
 packaging and deeper device integration. Smart TVs (webOS, Tizen) are web-only —

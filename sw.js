@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pydevices-pyscript-template-v1';
+const CACHE_NAME = 'pyscript-template-v1';
 const SHELL = [
   './',
   './index.html',
