@@ -12,14 +12,14 @@ app does not silently change when the product's default branch advances.
 
 ## Starter Example: Interactive Touch / Paint
 
-Below is an interactive paint application demonstrating the PyDevices Board Contract (`board_config` and `eventsys.Runtime`) running in the browser:
+Below is an interactive paint application demonstrating the PyDevices Board Contract (`board_config` and `appdev.App`) running in the browser:
 
 ```python
 import board_config
-import eventsys
+import appdev
 
 display_drv = board_config.display_drv
-runtime = eventsys.Runtime.from_board_config(board_config)
+runtime = appdev.App(board_config)
 
 colors = [0xFFFF, 0xF800, 0x07E0, 0x001F, 0x07FF, 0xF81F, 0xFFE0, 0x0000]
 block_size = display_drv.width // len(colors)

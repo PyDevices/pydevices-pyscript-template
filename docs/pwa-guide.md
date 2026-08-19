@@ -345,8 +345,8 @@ Pushes to `main` that touch `web/**` or `lib/**` run [Deploy PyScript site to Gi
 1. Verifies generated manifests are fresh (`install_refresh_manifests.sh --audit`, `gallery_generator.py --check`).
 2. Copies `.site/pyscript/*` into `_site/pyscript/`.
 3. Copies `lib/utils` and examples into `_site/pyscript/lib/`, adds canonical
-   `eventsys` / `multimer` from a pydevices checkout at the gallery's
-   `lib/{eventsys,multimer}` URLs, and overlays hardware-owned utilities
+   `appdev` / `multimer` from a pydevices checkout at the gallery's
+   `lib/{appdev,multimer}` URLs, and overlays hardware-owned utilities
    (`mip.py`, `byteswap`, …).
 4. Stamps `CACHE_NAME` in `_site/pyscript/sw.js` from shell content
    (`pyscript_stamp_pwa_cache.py`).
