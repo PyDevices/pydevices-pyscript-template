@@ -69,7 +69,7 @@ flowchart LR
     HTML[HTML shell]
     Manifest[manifest.json]
     SW[sw.js service worker]
-    PyScript[PyScript / Pyodide runtime]
+    PyScript[PyScript / Pyodide interpreter]
     App[Your Python example]
   end
   HTML --> PyScript --> App
@@ -100,7 +100,7 @@ GitHub Pages does **not** send those headers by default. The pydevices-examples 
 
 ### Register the worker before PyScript boots
 
-COI must be active before the runtime tries to allocate `SharedArrayBuffer`. Load `pwa.js` **synchronously in `<head>`**, before `vendor/core.js`:
+COI must be active before the interpreter tries to allocate `SharedArrayBuffer`. Load `pwa.js` **synchronously in `<head>`**, before `vendor/core.js`:
 
 ```html
 <script src="./pwa.js"></script>
@@ -113,7 +113,7 @@ Do **not** use `defer` on `pwa.js` for loader pages (`micropython.html`, `pyodid
 
 A first online visit downloads PyScript/Pyodide `.wasm` bundles and any packages your demo imports from CDNs. The service worker caches those on the fly. Storage can reach tens to hundreds of MB per demo.
 
-Use **stale-while-revalidate** (serve cache immediately, refresh in background) rather than precaching every runtime file at install time — precaching everything often hits browser storage limits on first load.
+Use **stale-while-revalidate** (serve cache immediately, refresh in background) rather than precaching every interpreter file at install time — precaching everything often hits browser storage limits on first load.
 
 ---
 
@@ -241,7 +241,7 @@ const STATIC_ASSETS = [
   // add your shell files; avoid listing every vendor/*.js
 ];
 
-const RUNTIME_ORIGINS = [
+const INTERPRETER_ORIGINS = [
   'pyscript.net',
   'cdn.jsdelivr.net',
   'pyodide.org',
@@ -392,7 +392,7 @@ Use Chrome or Edge on desktop, Chrome on Android, or Safari on iOS. On iOS the *
 4. **Offline**
    - Open your demo **once online** and click **Run** so Pyodide/MicroPython and packages download.
    - DevTools → **Network** → enable **Offline**.
-   - Reload. The shell and cached runtime should still load; uncached assets fail until you go back online.
+   - Reload. The shell and cached interpreter should still load; uncached assets fail until you go back online.
 
 5. **COI / SharedArrayBuffer**
    - DevTools → **Console**: no `SharedArrayBuffer` errors after the COI reload cycle.
@@ -507,7 +507,7 @@ missing `STATIC_ASSETS`. Remove the marker when restoring the normal worker.
 |---------|----------------|-----|
 | No install prompt / button never appears | Already installed, or manifest/SW invalid | Uninstall PWA; fix manifest errors in DevTools |
 | `SharedArrayBuffer` error | COI not active | Ensure one `sw.js` adds COI headers; reload after first SW install |
-| Offline reload fails immediately | Demo never run online | Visit once online; click **Run** to pull runtime + packages |
+| Offline reload fails immediately | Demo never run online | Visit once online; click **Run** to pull interpreter + packages |
 | Storage quota errors | Precache list too aggressive | Shrink `STATIC_ASSETS`; rely on fetch-time caching for WASM |
 | Stale content after deploy | Old cache / fixed `CACHE_NAME` | Ensure deploy stamps `CACHE_NAME`; for stuck legacy installs see [Orphaned service workers](#orphaned-service-workers-and-cache-migration) |
 | Stale gallery card `?deps=` on one machine | `index.html` was cache-first while `CACHE_NAME` ignores `GEN:demos` | `index.html` is network-first; hard-reload or clear site data once if still stuck |
